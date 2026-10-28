@@ -10,13 +10,13 @@ SJ.ready(function () {
     var url = "trip.html?id=" + encodeURIComponent(featured.id);
     var items = (featured.inclusions || []).slice(0, 5);
     fb.innerHTML = '<div class="feature-band on-dark">' +
-      '<div class="fb-media">' + SJ.picture(featured.gallery && featured.gallery[2] || featured.heroImage, featured.imageAlt, { sizes: "(min-width:960px) 33vw, 100vw" }) + "</div>" +
+      '<div class="fb-media">' + SJ.picture(featured.featureImage || featured.heroImage, featured.imageAlt, { sizes: "(min-width:960px) 33vw, 100vw" }) + "</div>" +
       '<div class="fb-body"><div class="reveal">' +
       '<p class="eyebrow">Featured trip' + (featured.demo && B.showDemoNotices ? " &middot; Sample" : "") + "</p>" +
       '<h2 class="h2">' + SJ.esc(featured.destination) + "</h2>" +
       '<p class="fb-dates">' + SJ.esc(SJ.dateRange(featured)) + "</p>" +
       '<p class="lead">' + SJ.esc(featured.summary) + "</p>" +
-      '<div class="btn-row mt-m"><a class="btn btn-champagne" href="' + url + '">View the Journey ' + SJ.icon("arrow") + "</a></div></div>" +
+      '<div class="btn-row mt-m"><a class="btn btn-champagne" href="' + (SJ.bookable(featured) ? "reserve.html?trip=" + encodeURIComponent(featured.id) : url) + '">' + (SJ.bookable(featured) ? "Reserve Your Spot " : "View the Journey ") + SJ.icon("arrow") + '</a><a class="hero-link" style="color:var(--champagne)" href="' + url + '">View details</a></div></div>' +
       (items.length ? '<ul class="fb-list reveal d1">' + items.map(function (i) {
         return "<li>" + SJ.icon(i.icon) + "<div><strong>" + SJ.esc(i.label) + "</strong><span>" + SJ.esc(i.detail) + "</span></div></li>";
       }).join("") + "</ul>" : "") +
@@ -28,6 +28,7 @@ SJ.ready(function () {
   var section = document.getElementById("itinerary-preview");
   if (featured && featured.itinerary && featured.itinerary.length) {
     document.getElementById("strip-link").href = "trip.html?id=" + encodeURIComponent(featured.id) + "#itinerary";
+    strip.classList.add("days-" + featured.itinerary.length);
     strip.innerHTML = featured.itinerary.map(function (d, i) {
       return '<article class="day-tile reveal">' + SJ.picture(d.image, d.title, { w: 600, sizes: "260px" }) +
         '<span class="day-num">Day ' + (i + 1) + "</span><h3>" + SJ.esc(d.title) + "</h3><p>" + SJ.esc(d.summary) + "</p></article>";
