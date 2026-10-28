@@ -9,7 +9,7 @@ window.BRAND = {
   philosophy: "Explore. Learn. Give Back. Unwind.",
 
   // Optional logo image. Leave empty to show the text wordmark.
-  // Example: "assets/img/logo.svg"
+  // Example: "logo.svg"
   logo: "",
 
   contact: {

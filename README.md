@@ -14,9 +14,9 @@ SOJOURN is a placeholder name. Everything brand related lives in one file so it 
 | `approach.html`, `about.html`, `faq.html`, `contact.html` | Information pages |
 | `privacy.html`, `terms.html`, `cancellation.html`, `accessibility.html` | Policy placeholders |
 | `404.html` | Page not found |
-| `assets/js/brand.js` | **Business name, tagline, email, form and payment switches** |
-| `assets/js/trips.js` | **Every trip: dates, prices, itinerary, hotels, inclusions** |
-| `assets/css/styles.css` | Colors, fonts and layout |
+| `brand.js` | **Business name, tagline, email, form and payment switches** |
+| `trips.js` | **Every trip: dates, prices, itinerary, hotels, inclusions** |
+| `styles.css` | Colors, fonts and layout |
 
 ## Why plain HTML instead of Next.js
 
@@ -29,7 +29,7 @@ The handoff suggested Next.js. This version is plain HTML, CSS and JavaScript in
 ## Put it online with GitHub Pages (free)
 
 1. Open the repository on GitHub and click **Add file**, then **Upload files**.
-2. Drag in everything inside this folder (the files and the `assets` folder), then click **Commit changes**.
+2. Drag in every file in this folder, then click **Commit changes**.
 3. Go to **Settings**, then **Pages**. Under Branch choose **main** and **/ (root)**, then **Save**.
 4. After a minute or two, your site appears at `https://YOUR-USERNAME.github.io/sojourn/`.
 
@@ -42,9 +42,9 @@ Forms work and validate today, but show a "Demo mode" message until connected. P
 
 ## Changing things
 
-* **Business name, email, phone:** edit `assets/js/brand.js`. Page tab titles also say SOJOURN, the site swaps them automatically.
-* **Add or edit a trip:** copy a block in `assets/js/trips.js`, change the details, give it a new `id`. Set `demo: false` for real trips.
-* **Photos:** the current photos are free Unsplash placeholders. Put your own in `assets/img/` and use the path, such as `"assets/img/amalfi.jpg"`.
+* **Business name, email, phone:** edit `brand.js`. Page tab titles also say SOJOURN, the site swaps them automatically.
+* **Add or edit a trip:** copy a block in `trips.js`, change the details, give it a new `id`. Set `demo: false` for real trips.
+* **Photos:** the current photos are free Unsplash placeholders. Upload your own photo next to the other files and use its name, such as `"amalfi.jpg"`.
 * **Launch checklist:** set `showOwnerNotes: false` in `brand.js`, replace the sample trips, fill in the About page and policy pages.
 
 ## Taking deposits online (when ready)

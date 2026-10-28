@@ -7,7 +7,7 @@
   published:false hides a trip without deleting it.
   status:         "open" | "inquiry" | "limited" | "waitlist" | "soldout" | "coming-soon"
   Images:         an Unsplash photo id (placeholder photography) or your own image path,
-                  such as "assets/img/amalfi-hero.jpg".
+                  such as "amalfi-hero.jpg".
   Activity types: "included" | "optional" (free, choose to join) | "extra" (additional cost)
 
   ALL FOUR TRIPS BELOW ARE SAMPLES. Dates, prices, hotels and partners are not real.

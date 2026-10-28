@@ -53,11 +53,11 @@
   // Accepts an Unsplash photo id such as "1612698093158-e07ac200d44e" or a normal image path.
   function img(src, w) {
     if (!src) return "";
-    if (/^(https?:|\/|assets\/|\.\/)/.test(src)) return src;
+    if (/^(https?:|\/|\.\/)|\.(jpe?g|png|webp|avif|svg)$/i.test(src)) return src;
     return "https://images.unsplash.com/photo-" + src + "?auto=format&fit=crop&q=75&w=" + (w || 1200);
   }
   function srcset(src) {
-    if (!src || /^(https?:|\/|assets\/|\.\/)/.test(src)) return "";
+    if (!src || /^(https?:|\/|\.\/)|\.(jpe?g|png|webp|avif|svg)$/i.test(src)) return "";
     return [480, 800, 1200, 1800].map(function (w) { return img(src, w) + " " + w + "w"; }).join(", ");
   }
   function picture(src, alt, opts) {
