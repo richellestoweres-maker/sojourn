@@ -662,3 +662,47 @@ fieldset { min-width: 0; }
 .strip-head h2 { white-space: normal; }
 @media (max-width: 640px) { .strip-head { flex-wrap: wrap; gap: 12px; } .strip-head .line { display: none; } .hero-link { margin-left: 0; } }
 .founder-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 30% 30%; }
+
+/* ---------- Approach page ---------- */
+.rhythm { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0; position: relative; }
+.rhythm li { position: relative; display: grid; grid-template-columns: 28px 1fr; column-gap: 16px; padding: 0 0 28px; }
+.rhythm li::before { content: ""; position: absolute; left: 6px; top: 16px; bottom: 0; width: 1px; background: var(--champagne-deep); opacity: .5; }
+.rhythm li:last-child::before { display: none; }
+.rhythm .r-dot { grid-row: 1 / span 3; width: 13px; height: 13px; border-radius: 50%; border: 1px solid var(--champagne-deep); background: var(--ivory); margin-top: 4px; position: relative; z-index: 1; }
+.rhythm .r-when { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.rhythm strong { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.15; text-transform: uppercase; letter-spacing: .06em; margin: 4px 0 6px; }
+.rhythm li > span:last-child { font-size: 14.5px; color: var(--muted); line-height: 1.55; max-width: 26ch; }
+.rhythm .r-free .r-dot { background: var(--forest); border-color: var(--forest); }
+.rhythm .r-free strong { color: var(--forest); }
+@media (min-width: 900px) {
+  .rhythm { grid-template-columns: repeat(6, 1fr); }
+  .rhythm li { grid-template-columns: 1fr; padding: 0 18px 0 0; }
+  .rhythm li::before { left: 13px; right: 0; top: 6px; bottom: auto; width: auto; height: 1px; }
+  .rhythm .r-dot { grid-row: auto; margin: 0 0 18px; }
+  .rhythm li:last-child::before { display: none; }
+}
+.rhythm .r-free { background: transparent; }
+.pillar-cards { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 760px) { .pillar-cards { grid-template-columns: 1fr 1fr; } }
+.pcard { background: var(--white); border: 1px solid var(--line); display: flex; flex-direction: column; overflow: hidden; }
+.pcard > img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform 1.2s var(--ease); }
+.pcard:hover > img { transform: scale(1.03); }
+.pcard-body { padding: 28px clamp(22px, 3vw, 36px) 32px; position: relative; flex: 1; }
+.pcard-icon { position: absolute; top: -26px; left: clamp(22px, 3vw, 36px); width: 52px; height: 52px; border-radius: 50%; background: var(--forest); color: var(--champagne); display: flex; align-items: center; justify-content: center; }
+.pcard-icon svg { width: 24px; height: 24px; }
+.pcard h3 { font-size: 30px; text-transform: uppercase; letter-spacing: .06em; margin: 18px 0 8px; }
+.pcard p { color: var(--muted); font-size: 15.5px; }
+.pcard ul { list-style: none; padding: 0; margin: 16px 0 0; border-top: 1px solid var(--line); }
+.pcard li { padding: 11px 0 11px 22px; border-bottom: 1px solid var(--line); font-size: 14.5px; position: relative; }
+.pcard li::before { content: ""; position: absolute; left: 2px; top: 21px; width: 10px; height: 1px; background: var(--champagne-deep); }
+.project-chips { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.project-chips li { display: flex; gap: 12px; align-items: center; padding: 16px; border: 1px solid var(--line-light); font-size: 14.5px; line-height: 1.35; }
+.project-chips svg { width: 22px; height: 22px; color: var(--champagne); flex: none; }
+@media (max-width: 480px) { .project-chips { grid-template-columns: 1fr; } }
+.principles.stacked { grid-template-columns: 1fr; gap: 0; }
+.principles.stacked .principle { border-top: 1px solid var(--line-light); border-bottom: 0; padding: 26px 0; }
+.founder-strip { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; max-width: 980px; }
+.founder-strip img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: 30% 25%; }
+@media (min-width: 700px) { .founder-strip { grid-template-columns: 220px 1fr; gap: 48px; } .founder-strip img { width: 220px; height: 220px; } }
+.page-hero .lead { color: rgba(247, 244, 238, .9); }
+.rhythm .r-when { white-space: nowrap; }
