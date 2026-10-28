@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserve Your Spot | SOJOURN</title>
+  <meta name="description" content="Request a reservation for an upcoming curated journey. Review pricing, inclusions and terms before you submit.">
+  <meta property="og:title" content="Reserve Your Spot | SOJOURN">
+  <meta property="og:description" content="Request a reservation for an upcoming curated journey. Review pricing, inclusions and terms before you submit.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#28372E">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="trips">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header data-site-header></header>
+
+  <main id="main">
+    <section class="plain-hero" style="padding-bottom:32px" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">Reservation request</p>
+        <h1 class="h1" id="page-title">Reserve Your Spot</h1>
+        <div class="stage-key" aria-label="How booking works">
+          <div class="now"><strong>1. Request</strong>Send your details today. Nothing is charged.</div>
+          <div><strong>2. Deposit</strong>Once we confirm availability, we send a secure link to pay your deposit.</div>
+          <div><strong>3. Confirmed</strong>Your spot is confirmed after your deposit is received, and we email your confirmation.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tight" style="padding-top:0">
+      <div class="container booking-layout">
+        <div>
+          <ol class="progress" id="progress" aria-label="Reservation steps"></ol>
+
+          <form name="reservation" id="reservation-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="reservation">
+            <p class="hidden"><label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+            <input type="hidden" name="travelers" id="h-travelers">
+            <input type="hidden" name="room" id="h-room">
+            <input type="hidden" name="price_summary" id="h-price">
+            <input type="hidden" name="additional_travelers" id="h-others">
+
+            <!-- Step 1 -->
+            <fieldset class="step-panel" data-step="Trip" style="border:0;padding:0;margin:0">
+              <legend class="visually-hidden">Choose your journey</legend>
+              <h2>Choose Your Journey</h2>
+              <p class="muted">Select the trip you'd like to reserve.</p>
+              <div class="field mt-m"><label for="r-trip">Journey</label><select class="select" id="r-trip" name="trip" required data-msg="Please choose a journey."></select></div>
+              <p class="form-status info hidden" id="trip-unavailable"></p>
+            </fieldset>
+
+            <!-- Step 2 -->
+            <fieldset class="step-panel" data-step="Travelers" style="border:0;padding:0;margin:0">
+              <legend class="visually-hidden">Travelers and rooms</legend>
+              <h2>Travelers and Rooms</h2>
+              <div class="field mt-m">
+                <span class="label" id="trav-label">Number of travelers</span>
+                <div class="stepper" role="group" aria-labelledby="trav-label">
+                  <button type="button" id="trav-minus" aria-label="Remove a traveler">&minus;</button>
+                  <output id="trav-count" aria-live="polite">2</output>
+                  <button type="button" id="trav-plus" aria-label="Add a traveler">+</button>
+                </div>
+                <p class="hint" id="trav-hint"></p>
+              </div>
+              <div class="field mt-m">
+                <span class="label" id="room-label">Room arrangement</span>
+                <div class="option-cards" id="room-options" role="radiogroup" aria-labelledby="room-label"></div>
+                <p class="field-error" id="room-error" aria-live="polite"></p>
+              </div>
+            </fieldset>
+
+            <!-- Step 3 -->
+            <section class="step-panel" data-step="Pricing" aria-labelledby="pricing-h">
+              <h2 id="pricing-h">Review Pricing</h2>
+              <div class="price-panel mt-m" id="pricing-detail"></div>
+              <p class="small muted mt-s" id="pricing-note"></p>
+            </section>
+
+            <!-- Step 4 -->
+            <fieldset class="step-panel" data-step="Details" style="border:0;padding:0;margin:0">
+              <legend class="visually-hidden">Traveler details</legend>
+              <h2>Traveler Details</h2>
+              <p class="muted">Please enter names exactly as they appear on each passport.</p>
+              <div class="traveler-block mt-m">
+                <h3>Lead traveler</h3>
+                <div class="form-grid two">
+                  <div class="field"><label for="r-first">First name</label><input class="input" id="r-first" name="first_name" autocomplete="given-name" required data-msg="Please enter a first name."></div>
+                  <div class="field"><label for="r-last">Last name</label><input class="input" id="r-last" name="last_name" autocomplete="family-name" required data-msg="Please enter a last name."></div>
+                  <div class="field"><label for="r-email">Email</label><input class="input" id="r-email" name="email" type="email" autocomplete="email" required data-msg="Please enter an email address."></div>
+                  <div class="field"><label for="r-phone">Phone</label><input class="input" id="r-phone" name="phone" type="tel" autocomplete="tel" required data-msg="Please enter a phone number."></div>
+                  <div class="field span-2"><label for="r-city">City and state or country</label><input class="input" id="r-city" name="home_city" autocomplete="address-level2" required data-msg="Please enter where you live."></div>
+                </div>
+              </div>
+              <div id="other-travelers"></div>
+              <div class="field mt-m"><label for="r-notes">Anything we should know? <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400">(optional)</span></label>
+                <textarea class="textarea" id="r-notes" name="notes" placeholder="Dietary needs, mobility or accessibility needs, celebrations, roommate requests"></textarea></div>
+            </fieldset>
+
+            <!-- Step 5 -->
+            <fieldset class="step-panel" data-step="Terms" style="border:0;padding:0;margin:0">
+              <legend class="visually-hidden">Inclusions and terms</legend>
+              <h2>Inclusions and Terms</h2>
+              <div id="terms-summary" class="mt-m"></div>
+              <div class="stack mt-m">
+                <label class="check"><input type="checkbox" id="r-terms" name="agree_terms" value="yes" required data-msg="Please confirm you have read the booking and cancellation terms."> I have read the <a href="terms.html" target="_blank" rel="noopener">booking terms</a> and <a href="cancellation.html" target="_blank" rel="noopener">cancellation terms</a>.</label>
+                <label class="check"><input type="checkbox" id="r-understand" name="understand_request" value="yes" required data-msg="Please confirm you understand this is a request."> I understand this is a reservation request. My spot is not confirmed until my deposit is received and I receive a written confirmation.</label>
+                <label class="check"><input type="checkbox" name="marketing_opt_in" value="yes"> Send me news about upcoming journeys. <span class="muted">(optional)</span></label>
+              </div>
+            </fieldset>
+
+            <!-- Step 6 -->
+            <fieldset class="step-panel" data-step="Payment" style="border:0;padding:0;margin:0">
+              <legend class="visually-hidden">Payment preference</legend>
+              <h2>Payment Preference</h2>
+              <p class="muted">You won't be charged today. Card details are never entered on this site.</p>
+              <div class="option-cards mt-m">
+                <label class="option-card"><input type="radio" name="payment_option" value="Secure deposit link after confirmation" checked><span><strong>Pay deposit by secure link</strong><small>After we confirm availability, we email you a secure payment link for your deposit.</small></span><span class="opt-price" id="pay-dep-1"></span></label>
+                <label class="option-card"><input type="radio" name="payment_option" value="Discuss a payment plan"><span><strong>Discuss a payment plan</strong><small>We'll contact you to talk through payment options for this journey.</small></span><span></span></label>
+                <label class="option-card hidden" id="pay-now-card"><input type="radio" name="payment_option" value="Pay deposit now online" disabled><span><strong>Pay deposit now</strong><small>After you submit, you'll continue to our secure payment page. Your spot is confirmed once we review your request.</small></span><span class="opt-price" id="pay-dep-2"></span></label>
+              </div>
+            </fieldset>
+
+            <!-- Step 7 -->
+            <section class="step-panel" data-step="Review" aria-labelledby="review-h">
+              <h2 id="review-h">Review and Submit</h2>
+              <div id="review" class="mt-m"></div>
+            </section>
+
+            <div class="step-actions" id="step-actions">
+              <button type="button" class="btn btn-outline" id="btn-back">Back</button>
+              <button type="button" class="btn btn-dark" id="btn-next">Continue <span data-icon="arrow"></span></button>
+              <button type="submit" class="btn btn-dark hidden" id="btn-submit">Submit Reservation Request</button>
+            </div>
+            <div class="form-status" id="submit-status" role="status" aria-live="polite"></div>
+          </form>
+
+          <div id="confirmation" class="hidden" tabindex="-1"></div>
+        </div>
+
+        <aside class="booking-summary" aria-label="Reservation summary">
+          <div class="summary-card" id="summary"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/brand.js"></script>
+  <script src="assets/js/trips.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/reserve.js"></script>
+</body>
+</html>

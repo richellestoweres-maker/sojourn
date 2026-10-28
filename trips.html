@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore Trips | SOJOURN</title>
+  <meta name="description" content="Browse upcoming curated small group journeys. Explore, learn, give back and unwind in destinations around the world.">
+  <meta property="og:title" content="Explore Trips | SOJOURN">
+  <meta property="og:description" content="Browse upcoming curated small group journeys. Explore, learn, give back and unwind in destinations around the world.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#28372E">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="trips">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header data-site-header></header>
+
+  <main id="main">
+    <section class="page-hero short" aria-labelledby="page-title">
+      <div class="hero-media"><span data-img="1534445867742-43195f401b6c" data-alt="Colorful village on a rocky Mediterranean coastline" data-eager></span></div>
+      <div class="container">
+        <p class="eyebrow">Upcoming journeys</p>
+        <h1 class="h1" id="page-title">Explore Trips</h1>
+        <p class="lead">Small group journeys, each designed around four moments: explore, learn, give back and unwind.</p>
+      </div>
+    </section>
+
+    <section class="section tight" aria-label="Trip listings">
+      <div class="container">
+        <p class="notice-bar demo-only" style="margin-bottom:28px;border:1px solid var(--line)"><strong>Sample trips.</strong> These journeys show how trips will appear. Dates, prices and partners are not confirmed.</p>
+
+        <form class="filters" id="filters" aria-label="Filter trips">
+          <div class="field"><label for="f-destination">Destination</label><select class="select" id="f-destination" name="destination"><option value="">All destinations</option></select></div>
+          <div class="field"><label for="f-month">Travel month</label><select class="select" id="f-month" name="month"><option value="">Any month</option></select></div>
+          <div class="field"><label for="f-duration">Duration</label><select class="select" id="f-duration" name="duration"><option value="">Any length</option><option value="short">Up to 6 days</option><option value="mid">7 to 8 days</option><option value="long">9 days or more</option></select></div>
+          <div class="field"><label for="f-price">Price</label><select class="select" id="f-price" name="price"><option value="">Any price</option><option value="0-4000">Under $4,000</option><option value="4000-5000">$4,000 to $5,000</option><option value="5000-999999">Over $5,000</option></select></div>
+          <div class="field"><label for="f-status">Availability</label><select class="select" id="f-status" name="status"><option value="">Any availability</option></select></div>
+          <div class="field"><label for="f-type">Experience</label><select class="select" id="f-type" name="type"><option value="">All experiences</option></select></div>
+        </form>
+        <div class="filter-bar"><p class="mb-0" id="result-count" role="status" aria-live="polite"></p><button type="button" class="text-link" id="clear-filters">Clear filters</button></div>
+
+        <div class="trip-grid three" id="trip-results"></div>
+
+        <div class="empty-state hidden" id="no-results">
+          <span data-icon="compass"></span>
+          <h2 class="h3">No journeys match those filters</h2>
+          <p class="muted">Try widening your search, or join the list to hear about new trips first.</p>
+          <div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-outline" id="clear-filters-2">Clear filters</button><a class="btn btn-dark" href="#join">Join the List</a></div>
+        </div>
+
+        <div class="empty-state hidden" id="no-trips">
+          <span data-icon="globe"></span>
+          <h2 class="h3">New journeys are being planned</h2>
+          <p class="muted">There are no trips open right now. Join the list and you'll be the first to know when the next destination is announced.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-cream" id="join" aria-labelledby="join-title">
+      <div class="container narrow center">
+        <p class="eyebrow">Stay in touch</p>
+        <h2 class="h2" id="join-title">The World Is Waiting.</h2>
+        <hr class="rule">
+        <p class="muted">Be the first to discover new destinations, upcoming journeys, and exclusive travel opportunities.</p>
+        <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-simple-form data-success="Welcome to the journey. Watch your inbox for our next destinations." novalidate style="text-align:left">
+          <input type="hidden" name="form-name" value="newsletter">
+          <p class="hidden"><label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="signup-fields">
+            <div class="field"><label for="nl-name" class="visually-hidden">First name</label><input class="input" id="nl-name" name="first_name" placeholder="First name" autocomplete="given-name" required data-msg="Please enter your first name."></div>
+            <div class="field"><label for="nl-email" class="visually-hidden">Email address</label><input class="input" id="nl-email" name="email" type="email" placeholder="Email address" autocomplete="email" required data-msg="Please enter your email address."></div>
+            <button class="btn btn-dark" type="submit">Join the Journey</button>
+          </div>
+          <p class="consent">By joining, you agree to receive travel news and trip announcements by email. You can unsubscribe at any time. See our <a href="privacy.html">Privacy Policy</a>.</p>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/brand.js"></script>
+  <script src="assets/js/trips.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/explore.js"></script>
+</body>
+</html>

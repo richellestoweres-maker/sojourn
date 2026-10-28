@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | SOJOURN</title>
+  <meta name="description" content="Get in touch with questions about our upcoming journeys, group travel or private trip planning.">
+  <meta property="og:title" content="Contact | SOJOURN">
+  <meta property="og:description" content="Get in touch with questions about our upcoming journeys, group travel or private trip planning.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#28372E">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="contact">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header data-site-header></header>
+
+  <main id="main">
+    <section class="plain-hero" aria-labelledby="page-title">
+      <div class="container narrow center">
+        <p class="eyebrow">Contact</p>
+        <h1 class="h1" id="page-title">Let's Talk Travel</h1>
+        <hr class="rule">
+        <p class="lead">Questions about a journey, traveling solo, or a group of your own? Send us a note and we'll reply personally.</p>
+      </div>
+    </section>
+
+    <section class="section tight" style="padding-top:0">
+      <div class="container split wide-right" style="align-items:start">
+        <div class="reveal">
+          <span data-img="1498503182468-3b51cbb6cb24" data-alt="A table on a terrace overlooking the sea" data-sizes="(min-width:900px) 40vw, 100vw"></span>
+          <ul class="contact-details">
+            <li><span data-icon="mail"></span><div><span class="label" style="display:block">Email</span><a data-brand-email href="#"></a></div></li>
+            <li class="phone-row"><span data-icon="phone"></span><div><span class="label" style="display:block">Phone</span><span data-brand="contact.phone"></span></div></li>
+            <li><span data-icon="pin"></span><div><span class="label" style="display:block">Location</span><span data-brand="contact.location"></span></div></li>
+          </ul>
+        </div>
+        <div class="reveal d1">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-simple-form data-success="Thank you. Your message has been sent and we'll be in touch soon." novalidate>
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hidden"><label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+            <div class="form-grid two">
+              <div class="field"><label for="c-first">First name</label><input class="input" id="c-first" name="first_name" autocomplete="given-name" required data-msg="Please enter your first name."></div>
+              <div class="field"><label for="c-last">Last name</label><input class="input" id="c-last" name="last_name" autocomplete="family-name" required data-msg="Please enter your last name."></div>
+              <div class="field"><label for="c-email">Email</label><input class="input" id="c-email" name="email" type="email" autocomplete="email" required data-msg="Please enter your email address."></div>
+              <div class="field"><label for="c-phone">Phone <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400">(optional)</span></label><input class="input" id="c-phone" name="phone" type="tel" autocomplete="tel"></div>
+              <div class="field span-2"><label for="c-trip">Journey you're interested in</label><select class="select" id="c-trip" name="trip"><option value="">General question</option></select></div>
+              <div class="field span-2"><label for="c-message">Message</label><textarea class="textarea" id="c-message" name="message" required data-msg="Please write a short message."></textarea></div>
+              <div class="span-2"><label class="check"><input type="checkbox" name="marketing_opt_in" value="yes"> Also send me news about upcoming journeys. You can unsubscribe at any time.</label></div>
+            </div>
+            <button class="btn btn-dark mt-m" type="submit">Send Message</button>
+            <p class="consent mt-s">We use your details only to reply to your message. See our <a href="privacy.html">Privacy Policy</a>.</p>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/brand.js"></script>
+  <script src="assets/js/trips.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>
