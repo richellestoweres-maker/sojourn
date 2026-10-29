@@ -134,7 +134,7 @@
   /* ---------------- Header & footer ---------------- */
   function wordmark() {
     if (B.logo) return '<img src="' + esc(B.logo) + '" alt="' + esc(B.name) + '">';
-    return '<span class="wordmark-name">' + esc(B.name) + '</span><span class="wordmark-tag">' + esc(B.tagline) + "</span>";
+    return '<span class="wordmark-name">' + esc(B.name) + "</span>" + (B.tagline ? '<span class="wordmark-tag">' + esc(B.tagline) + "</span>" : "");
   }
   var NAV = [
     { href: "index.html", label: "Home", page: "home" },

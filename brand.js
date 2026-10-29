@@ -5,7 +5,7 @@
 */
 window.BRAND = {
   name: "SOJOURN",
-  tagline: "Travel With Purpose",
+  tagline: "",                         // Optional short line under the name
   philosophy: "Explore. Learn. Give Back. Unwind.",
 
   // Optional logo image. Leave empty to show the text wordmark.
